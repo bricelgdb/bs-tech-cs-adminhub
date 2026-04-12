@@ -13,17 +13,10 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {/* Top-left branding */}
-      <div className="p-6">
-        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[240px] w-auto" />
-      </div>
-
-      {/* Centered login form */}
-      <div className="flex flex-1 items-center justify-center">
+      {/* Centered logo + form */}
+      <div className="flex flex-1 flex-col items-center justify-center">
+        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[240px] w-auto mb-10" />
         <div className="w-full max-w-sm">
-          <p className="mb-6 text-sm text-muted-foreground whitespace-nowrap">
-            BESTSELLER TECH Creative Solutions Admin Hub
-          </p>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="email"
