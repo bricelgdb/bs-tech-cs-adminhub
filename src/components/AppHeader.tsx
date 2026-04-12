@@ -49,13 +49,6 @@ export function AppHeader() {
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <select
-          value={activeRole}
-          onChange={(e) => setActiveRole(e.target.value as AppRole)}
-          className="rounded-md border border-border bg-background px-2 py-1 text-[11px] text-muted-foreground focus:outline-none focus:border-primary"
-        >
-          {allRoles.map(r => <option key={r} value={r}>{r}</option>)}
-        </select>
         <span className="rounded-full border border-primary/30 px-2.5 py-0.5 text-[10px] font-medium text-primary">
           BESTSELLER TECH
         </span>
