@@ -15,14 +15,14 @@ export default function LoginPage() {
     <div className="flex min-h-screen flex-col bg-background">
       {/* Top-left branding */}
       <div className="p-6">
-        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[60px] w-auto" />
+        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[240px] w-auto" />
       </div>
 
       {/* Centered login form */}
       <div className="flex flex-1 items-center justify-center">
         <div className="w-full max-w-sm">
-          <p className="mb-6 text-sm text-muted-foreground">
-            Sign in to access your BESTSELLER TECH Creative Solutions Admin Hub
+          <p className="mb-6 text-sm text-muted-foreground whitespace-nowrap">
+            BESTSELLER TECH Creative Solutions Admin Hub
           </p>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
