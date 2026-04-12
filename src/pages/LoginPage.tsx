@@ -15,14 +15,14 @@ export default function LoginPage() {
     <div className="flex min-h-screen flex-col bg-background">
       {/* Top-left branding */}
       <div className="p-6">
-        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-14 w-auto" />
+        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[60px] w-auto" />
       </div>
 
       {/* Centered login form */}
       <div className="flex flex-1 items-center justify-center">
         <div className="w-full max-w-sm">
           <p className="mb-6 text-sm text-muted-foreground">
-            Sign in to access your BESTSELLER TECH Creative Solutions workspace
+            Sign in to access your BESTSELLER TECH Creative Solutions Admin Hub
           </p>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
@@ -39,12 +39,6 @@ export default function LoginPage() {
               SSO LOGIN
             </button>
           </form>
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Request access{" "}
-            <a href="#" className="font-medium text-accent hover:underline">
-              HERE
-            </a>
-          </p>
         </div>
       </div>
 
