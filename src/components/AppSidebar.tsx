@@ -57,9 +57,7 @@ export function AppSidebar() {
               });
               if (!isAllowed) return null;
 
-              const isActive = item.to === "/"
-                ? location.pathname === "/"
-                : location.pathname.startsWith(item.to);
+              const isActive = location.pathname.startsWith(item.to);
 
               return (
                 <NavLink
