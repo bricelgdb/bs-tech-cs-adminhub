@@ -1,10 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
   LayoutDashboard, Box, BarChart3, Shield, Key, BookOpen,
-  ChevronLeft, ChevronRight, Diamond,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 import { rolePermissions } from "@/data/users";
+import logoImg from "@/assets/logo.png";
 
 const navSections = [
   {
