@@ -33,7 +33,8 @@ const App = () => (
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route element={<AppLayout />}>
-            <Route path="/" element={<DashboardPage />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/products" element={<RouteGuard allowedPaths={["/products"]}><ProductsPage /></RouteGuard>} />
             <Route path="/products/:productId" element={<RouteGuard allowedPaths={["/products"]}><ProductDetailPage /></RouteGuard>}>
               <Route index element={<Navigate to="overview" replace />} />

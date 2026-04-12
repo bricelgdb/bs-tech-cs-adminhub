@@ -13,12 +13,12 @@ export interface AppUser {
 }
 
 export const rolePermissions: Record<AppRole, string[]> = {
-  "Platform Owner": ["/", "/products", "/reports", "/access", "/licences", "/resources"],
-  "Brand Design Lead": ["/", "/products", "/reports", "/resources"],
-  "Creative Tech": ["/", "/products", "/resources"],
-  "IT Admin": ["/", "/access", "/licences", "/resources"],
-  "Finance Stakeholder": ["/", "/reports", "/licences", "/resources"],
-  "Team Member": ["/", "/products", "/resources"],
+  "Platform Owner": ["/dashboard", "/products", "/reports", "/access", "/licences", "/resources"],
+  "Brand Design Lead": ["/dashboard", "/products", "/reports", "/resources"],
+  "Creative Tech": ["/dashboard", "/products", "/resources"],
+  "IT Admin": ["/dashboard", "/access", "/licences", "/resources"],
+  "Finance Stakeholder": ["/dashboard", "/reports", "/licences", "/resources"],
+  "Team Member": ["/dashboard", "/products", "/resources"],
 };
 
 export const currentUser: AppUser = {
