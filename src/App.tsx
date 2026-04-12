@@ -19,6 +19,7 @@ import ReportsPage from "@/pages/ReportsPage";
 import AccessPage from "@/pages/AccessPage";
 import LicencesPage from "@/pages/LicencesPage";
 import ResourcesPage from "@/pages/ResourcesPage";
+import LoginPage from "@/pages/LoginPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<LoginPage />} />
           <Route element={<AppLayout />}>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/products" element={<RouteGuard allowedPaths={["/products"]}><ProductsPage /></RouteGuard>} />
