@@ -11,7 +11,7 @@ const navSections = [
   {
     label: "Platform",
     items: [
-      { to: "/", icon: LayoutDashboard, label: "Dashboard" },
+      { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
       { to: "/products", icon: Box, label: "Products", badge: "8" },
       { to: "/reports", icon: BarChart3, label: "Reports" },
     ],
