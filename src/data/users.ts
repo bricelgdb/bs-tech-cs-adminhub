@@ -23,7 +23,7 @@ export const rolePermissions: Record<AppRole, string[]> = {
 
 export const currentUser: AppUser = {
   id: "user-1",
-  name: "Martin Kjær",
+  name: "Brice",
   email: "martin.kjaer@bestseller.com",
   brand: "BESTSELLER Tech",
   role: "Platform Owner",
