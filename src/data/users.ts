@@ -30,7 +30,7 @@ export const currentUser: AppUser = {
   productAccess: ["adobe-cc", "ai-studioone", "capture-one", "creative-force", "pantone", "weavy", "midjourney", "davinci"],
   lastActive: "2026-04-11",
   status: "active",
-  initials: "MK",
+  initials: "B",
 };
 
 export const users: AppUser[] = [
