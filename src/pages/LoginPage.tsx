@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import loginLogo from "@/assets/login-logo.png";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,14 +15,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen flex-col bg-background">
       {/* Top-left branding */}
       <div className="p-6">
-        <div className="flex items-center gap-3">
-          <img src={logo} alt="TECH Creative Solutions" className="h-8 w-auto" />
-          <div>
-            <span className="text-sm font-bold tracking-[0.15em] text-foreground">BESTSELLER</span>
-            <span className="ml-2 text-sm font-bold tracking-[0.08em] text-accent">TECH</span>
-          </div>
-        </div>
-        <p className="mt-1 ml-11 text-xs text-muted-foreground">Creative Solutions Admin Hub</p>
+        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-14 w-auto" />
       </div>
 
       {/* Centered login form */}
