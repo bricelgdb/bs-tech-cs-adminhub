@@ -1,10 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
   LayoutDashboard, Box, BarChart3, Shield, Key, BookOpen,
-  ChevronLeft, ChevronRight, Diamond,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 import { rolePermissions } from "@/data/users";
+import logoImg from "@/assets/logo.png";
 
 const navSections = [
   {
@@ -40,7 +41,7 @@ export function AppSidebar() {
       className={`flex flex-col border-r border-border bg-card transition-all duration-200 ${sidebarCollapsed ? "w-14" : "w-[220px]"} shrink-0 h-screen sticky top-0`}
     >
       <div className="flex items-center gap-2 px-3 h-[52px] border-b border-border">
-        <Diamond className="h-5 w-5 text-primary shrink-0" />
+        <img src={logoImg} alt="TECH Creative Solutions Admin Hub" className="h-8 shrink-0" />
         {!sidebarCollapsed && (
           <span className="text-xs font-bold text-foreground truncate leading-tight">
             TECH Creative Solutions<br />Admin Hub

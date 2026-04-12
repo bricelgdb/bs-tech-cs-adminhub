@@ -23,14 +23,14 @@ export const rolePermissions: Record<AppRole, string[]> = {
 
 export const currentUser: AppUser = {
   id: "user-1",
-  name: "Martin Kjær",
+  name: "Brice",
   email: "martin.kjaer@bestseller.com",
   brand: "BESTSELLER Tech",
   role: "Platform Owner",
   productAccess: ["adobe-cc", "ai-studioone", "capture-one", "creative-force", "pantone", "weavy", "midjourney", "davinci"],
   lastActive: "2026-04-11",
   status: "active",
-  initials: "MK",
+  initials: "B",
 };
 
 export const users: AppUser[] = [
