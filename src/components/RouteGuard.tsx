@@ -12,10 +12,7 @@ interface RouteGuardProps {
 export function RouteGuard({ allowedPaths, children }: RouteGuardProps) {
   const { activeRole } = useAppStore();
   const allowed = rolePermissions[activeRole];
-  const hasAccess = allowedPaths.some(path => allowed.some(a => {
-    if (a === "/") return path === "/";
-    return path.startsWith(a);
-  }));
+  const hasAccess = allowedPaths.some(path => allowed.some(a => path.startsWith(a)));
 
   if (!hasAccess) {
     return (
@@ -23,7 +20,7 @@ export function RouteGuard({ allowedPaths, children }: RouteGuardProps) {
         <ShieldX className="h-12 w-12 text-muted-foreground" />
         <h2 className="mt-4 text-lg font-bold text-foreground">You don't have access to this page</h2>
         <p className="mt-1 text-sm text-muted-foreground">Your current role ({activeRole}) doesn't have permission to view this content.</p>
-        <Link to="/" className="mt-6 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90">
+        <Link to="/dashboard" className="mt-6 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90">
           Go to Dashboard
         </Link>
       </div>
