@@ -26,7 +26,7 @@ const navSections = [
   {
     label: "Team",
     items: [
-      { to: "/resources", icon: BookOpen, label: "Resources" },
+      { to: "/resources", icon: BookOpen, label: "Links" },
     ],
   },
 ];
@@ -41,14 +41,14 @@ export function AppSidebar() {
       className={`flex flex-col border-r border-border bg-card transition-all duration-200 ${sidebarCollapsed ? "w-14" : "w-[220px]"} shrink-0 h-screen sticky top-0`}
     >
       <div className="flex items-center justify-center px-3 h-[52px] border-b border-border">
-        <img src={logoImg} alt="BESTSELLER TECH" className={`${sidebarCollapsed ? "h-6" : "h-10"} w-auto shrink-0`} />
+        <img src={logoImg} alt="BESTSELLER TECH" className={`${sidebarCollapsed ? "h-6" : "h-14"} w-auto shrink-0`} />
       </div>
 
       <nav className="flex-1 overflow-y-auto py-3">
         {navSections.map(section => (
           <div key={section.label} className="mb-4">
             {!sidebarCollapsed && (
-              <div className="section-label px-4 mb-1.5">{section.label}</div>
+              <div className="section-label px-4 mb-1.5 text-foreground">{section.label}</div>
             )}
             {section.items.map(item => {
               const isAllowed = allowed.some(p => {
