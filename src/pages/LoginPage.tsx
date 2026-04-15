@@ -12,8 +12,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      {/* Centered logo + form */}
+    <div className="flex min-h-screen flex-col bg-sidebar">
       <div className="flex flex-1 flex-col items-center justify-center">
         <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[240px] w-auto mb-10" />
         <div className="w-full max-w-sm">
@@ -23,11 +22,11 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@bestseller.com"
-              className="h-12 w-full rounded-md border border-border bg-surface px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent"
+              className="h-12 w-full rounded-md border border-sidebar-border bg-sidebar-accent px-4 text-sm text-sidebar-foreground placeholder:text-sidebar-foreground/40 focus:outline-none focus:border-sidebar-foreground/30"
             />
             <button
               type="submit"
-              className="h-12 w-full rounded-md bg-accent font-semibold tracking-wide text-sm text-accent-foreground hover:opacity-90 transition-opacity"
+              className="h-12 w-full rounded-md bg-sidebar-foreground font-semibold tracking-wide text-sm text-sidebar-background hover:opacity-90 transition-opacity"
             >
               SSO LOGIN
             </button>
@@ -35,9 +34,8 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="p-6">
-        <p className="text-xs text-muted-foreground">© 2026 BESTSELLER A/S</p>
+        <p className="text-xs text-sidebar-foreground/40">© 2026 BESTSELLER A/S</p>
       </div>
     </div>
   );

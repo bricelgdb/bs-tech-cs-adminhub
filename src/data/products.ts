@@ -131,15 +131,15 @@ export const productDocs: Record<string, DocLink[]> = Object.fromEntries(
 );
 
 export const domainColorMap: Record<string, string> = {
-  Photo: "hsl(214, 100%, 62%)",
-  Video: "hsl(340, 91%, 71%)",
-  Design: "hsl(263, 86%, 77%)",
-  GenAI: "hsl(72, 100%, 62.7%)",
-  Colour: "hsl(36, 91%, 55%)",
-  Collaboration: "hsl(153, 72%, 46%)",
-  "3D": "hsl(0, 0%, 53.3%)",
-  Production: "hsl(214, 100%, 62%)",
-  Post: "hsl(340, 91%, 71%)",
+  Photo: "hsl(214, 72%, 48%)",
+  Video: "hsl(340, 65%, 55%)",
+  Design: "hsl(263, 55%, 58%)",
+  GenAI: "hsl(220, 14%, 20%)",
+  Colour: "hsl(30, 70%, 48%)",
+  Collaboration: "hsl(160, 50%, 38%)",
+  "3D": "hsl(220, 8%, 52%)",
+  Production: "hsl(214, 72%, 48%)",
+  Post: "hsl(340, 65%, 55%)",
 };
 
 export const domainTwColor: Record<string, string> = {

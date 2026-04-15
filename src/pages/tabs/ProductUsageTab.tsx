@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useProduct } from "@/hooks/useDataHooks";
 import { KpiTile } from "@/components/KpiTile";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { chartTickStyle, chartTooltipStyle, chartBarAccent } from "@/lib/chartTheme";
 
 export default function ProductUsageTab() {
   const { productId } = useParams<{ productId: string }>();
@@ -36,25 +37,25 @@ export default function ProductUsageTab() {
         <KpiTile label="Utilisation Rate" value={`${product.utilisation}%`} delta="+5% vs prior 30d" deltaType="up" />
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <div className="rounded-lg border border-border bg-card p-5">
-          <h3 className="text-sm font-bold text-foreground mb-4">Top 10 users by activity hours</h3>
+        <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+          <h3 className="text-sm font-semibold text-foreground mb-4">Top 10 users by activity hours</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={topUsers} layout="vertical">
-              <XAxis type="number" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis type="category" dataKey="name" width={130} tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: "#1d1d1d", border: "1px solid #2a2a2a", borderRadius: 6, fontSize: 12, color: "#f0f0f0" }} />
-              <Bar dataKey="hours" fill="#e8ff40" radius={[0, 4, 4, 0]} />
+              <XAxis type="number" tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <YAxis type="category" dataKey="name" width={130} tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={chartTooltipStyle} />
+              <Bar dataKey="hours" fill={chartBarAccent} radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg border border-border bg-card p-5">
-          <h3 className="text-sm font-bold text-foreground mb-4">Feature usage breakdown</h3>
+        <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+          <h3 className="text-sm font-semibold text-foreground mb-4">Feature usage breakdown</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={featureUsage} layout="vertical">
-              <XAxis type="number" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis type="category" dataKey="feature" width={120} tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: "#1d1d1d", border: "1px solid #2a2a2a", borderRadius: 6, fontSize: 12, color: "#f0f0f0" }} />
-              <Bar dataKey="hours" fill="#3a8eff" radius={[0, 4, 4, 0]} />
+              <XAxis type="number" tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <YAxis type="category" dataKey="feature" width={120} tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={chartTooltipStyle} />
+              <Bar dataKey="hours" fill="hsl(214, 72%, 48%)" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { domainColorMap, type Product } from "@/data/products";
 import { accessRequests } from "@/data/users";
+import { chartTickStyle, chartTooltipStyle, chartBarMuted, chartBarAccent } from "@/lib/chartTheme";
 
 function getGreeting() {
   const h = new Date().getHours();
@@ -39,7 +40,7 @@ export default function DashboardPage() {
   const seatsByProduct = products?.map(p => ({
     name: p.name.length > 20 ? p.name.slice(0, 20) + "…" : p.name,
     seats: p.seats,
-    color: domainColorMap[p.domain[0]] ?? "#888",
+    color: domainColorMap[p.domain[0]] ?? "hsl(220, 8%, 52%)",
   })).sort((a, b) => b.seats - a.seats) ?? [];
 
   return (
@@ -83,28 +84,28 @@ export default function DashboardPage() {
           <><SkeletonChart height={320} /><SkeletonChart height={320} /></>
         ) : (
           <>
-            <div className="rounded-lg border border-border bg-card p-5">
-              <h3 className="text-sm font-bold text-foreground mb-4">Seats by product</h3>
+            <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+              <h3 className="text-sm font-semibold text-foreground mb-4">Seats by product</h3>
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={seatsByProduct} layout="vertical" margin={{ left: 0, right: 20 }}>
-                  <XAxis type="number" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis type="category" dataKey="name" width={140} tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <Tooltip contentStyle={{ background: "#1d1d1d", border: "1px solid #2a2a2a", borderRadius: 6, fontSize: 12, color: "#f0f0f0" }} />
+                  <XAxis type="number" tick={chartTickStyle} axisLine={false} tickLine={false} />
+                  <YAxis type="category" dataKey="name" width={140} tick={chartTickStyle} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={chartTooltipStyle} />
                   <Bar dataKey="seats" radius={[0, 4, 4, 0]}>
                     {seatsByProduct.map((entry, i) => <Cell key={i} fill={entry.color} />)}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <div className="rounded-lg border border-border bg-card p-5">
-              <h3 className="text-sm font-bold text-foreground mb-4">Monthly spend (last 6 months)</h3>
+            <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+              <h3 className="text-sm font-semibold text-foreground mb-4">Monthly spend (last 6 months)</h3>
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={monthlySpend} margin={{ left: 0, right: 20 }}>
-                  <XAxis dataKey="month" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => `€${(v/1000).toFixed(0)}k`} />
-                  <Tooltip contentStyle={{ background: "#1d1d1d", border: "1px solid #2a2a2a", borderRadius: 6, fontSize: 12, color: "#f0f0f0" }} formatter={(v: number) => [`€${v.toLocaleString()}`, "Spend"]} />
+                  <XAxis dataKey="month" tick={chartTickStyle} axisLine={false} tickLine={false} />
+                  <YAxis tick={chartTickStyle} axisLine={false} tickLine={false} tickFormatter={v => `€${(v/1000).toFixed(0)}k`} />
+                  <Tooltip contentStyle={chartTooltipStyle} formatter={(v: number) => [`€${v.toLocaleString()}`, "Spend"]} />
                   <Bar dataKey="spend" radius={[4, 4, 0, 0]}>
-                    {monthlySpend.map((_, i) => <Cell key={i} fill={i === monthlySpend.length - 1 ? "#e8ff40" : "#333"} />)}
+                    {monthlySpend.map((_, i) => <Cell key={i} fill={i === monthlySpend.length - 1 ? chartBarAccent : chartBarMuted} />)}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
@@ -115,13 +116,13 @@ export default function DashboardPage() {
 
       <div>
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-bold text-foreground">Recent activity</h3>
+          <h3 className="text-sm font-semibold text-foreground">Recent activity</h3>
           <Link to="/products" className="text-xs text-primary hover:underline">View all →</Link>
         </div>
         {aLoading ? (
           <SkeletonChart height={200} />
         ) : (
-          <div className="rounded-lg border border-border bg-card p-5">
+          <div className="rounded-lg border border-border bg-card p-5 shadow-card">
             <Timeline events={activity?.slice(0, 8) ?? []} />
           </div>
         )}
