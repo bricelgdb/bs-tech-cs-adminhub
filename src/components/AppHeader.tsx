@@ -49,10 +49,10 @@ export function AppHeader() {
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <span className="rounded-full border border-primary/30 px-2.5 py-0.5 text-[10px] font-medium text-primary">
+        <span className="rounded-full border border-border px-2.5 py-0.5 text-[10px] font-medium text-muted-foreground">
           BESTSELLER TECH
         </span>
-        <button className="relative text-muted-foreground hover:text-foreground">
+        <button className="relative text-muted-foreground hover:text-foreground transition-colors">
           <Bell className="h-4 w-4" />
           <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-semantic-red" />
         </button>
