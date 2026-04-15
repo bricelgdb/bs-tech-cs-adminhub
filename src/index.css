@@ -4,69 +4,77 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5.5%;
-    --foreground: 0 0% 94.1%;
+    --background: 40 20% 97%;
+    --foreground: 220 20% 14%;
 
-    --card: 0 0% 8.6%;
-    --card-foreground: 0 0% 94.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
 
-    --popover: 0 0% 8.6%;
-    --popover-foreground: 0 0% 94.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 72 100% 62.7%;
-    --primary-foreground: 0 0% 5.5%;
+    --primary: 220 14% 20%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 11.4%;
-    --secondary-foreground: 0 0% 94.1%;
+    --secondary: 40 12% 93%;
+    --secondary-foreground: 220 20% 14%;
 
-    --muted: 0 0% 16.5%;
-    --muted-foreground: 0 0% 53.3%;
+    --muted: 40 10% 91%;
+    --muted-foreground: 220 8% 52%;
 
-    --accent: 72 100% 62.7%;
-    --accent-foreground: 0 0% 5.5%;
+    --accent: 40 12% 93%;
+    --accent-foreground: 220 20% 14%;
 
-    --destructive: 0 100% 65.1%;
-    --destructive-foreground: 0 0% 94.1%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16.5%;
-    --border-hover: 0 0% 20%;
-    --input: 0 0% 16.5%;
-    --ring: 72 100% 62.7%;
+    --border: 40 10% 88%;
+    --border-hover: 40 10% 78%;
+    --input: 40 10% 88%;
+    --ring: 220 14% 20%;
 
     --radius: 0.5rem;
 
-    --surface: 0 0% 8.6%;
-    --surface-elevated: 0 0% 11.4%;
+    --surface: 40 15% 95%;
+    --surface-elevated: 40 12% 93%;
 
-    --text-primary: 0 0% 94.1%;
-    --text-secondary: 0 0% 53.3%;
-    --text-muted: 0 0% 33.3%;
+    --text-primary: 220 20% 14%;
+    --text-secondary: 220 8% 52%;
+    --text-muted: 220 6% 72%;
 
-    --domain-photo: 214 100% 62%;
-    --domain-video: 340 91% 71%;
-    --domain-design: 263 86% 77%;
-    --domain-genai: 72 100% 62.7%;
-    --domain-colour: 36 91% 55%;
-    --domain-collaboration: 153 72% 46%;
-    --domain-3d: 0 0% 53.3%;
-    --domain-production: 214 100% 62%;
-    --domain-post: 340 91% 71%;
+    --domain-photo: 214 72% 48%;
+    --domain-video: 340 65% 55%;
+    --domain-design: 263 55% 58%;
+    --domain-genai: 220 14% 20%;
+    --domain-colour: 30 70% 48%;
+    --domain-collaboration: 160 50% 38%;
+    --domain-3d: 220 8% 52%;
+    --domain-production: 214 72% 48%;
+    --domain-post: 340 65% 55%;
 
-    --semantic-blue: 214 100% 62%;
-    --semantic-green: 153 72% 46%;
-    --semantic-amber: 36 91% 55%;
-    --semantic-red: 0 100% 65.1%;
-    --semantic-pink: 340 91% 71%;
-    --semantic-purple: 263 86% 77%;
+    --semantic-blue: 214 72% 48%;
+    --semantic-green: 160 50% 38%;
+    --semantic-amber: 30 70% 48%;
+    --semantic-red: 0 72% 51%;
+    --semantic-pink: 340 65% 55%;
+    --semantic-purple: 263 55% 58%;
 
-    --sidebar-background: 0 0% 8.6%;
-    --sidebar-foreground: 0 0% 94.1%;
-    --sidebar-primary: 72 100% 62.7%;
-    --sidebar-primary-foreground: 0 0% 5.5%;
-    --sidebar-accent: 0 0% 11.4%;
-    --sidebar-accent-foreground: 0 0% 94.1%;
-    --sidebar-border: 0 0% 16.5%;
-    --sidebar-ring: 72 100% 62.7%;
+    --sidebar-background: 220 14% 20%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 40 20% 92%;
+    --sidebar-primary-foreground: 220 14% 20%;
+    --sidebar-accent: 220 14% 26%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 220 14% 28%;
+    --sidebar-ring: 40 20% 92%;
+
+    --chart-tick: 220 8% 62%;
+    --chart-grid: 40 10% 88%;
+    --chart-tooltip-bg: 0 0% 100%;
+    --chart-tooltip-border: 40 10% 88%;
+    --chart-tooltip-text: 220 20% 14%;
+    --chart-bar-muted: 40 10% 85%;
+    --chart-bar-accent: 220 14% 20%;
   }
 }
 
@@ -77,20 +85,20 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
   }
 }
 
 @layer utilities {
   .heading-page {
-    @apply text-[22px] font-bold tracking-tight text-foreground;
+    @apply text-[22px] font-semibold tracking-tight text-foreground;
   }
   .subtitle-page {
     @apply text-xs text-muted-foreground;
