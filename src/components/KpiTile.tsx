@@ -15,12 +15,12 @@ export function KpiTile({ label, value, delta, deltaType = "neutral", icon: Icon
   const deltaColor = deltaType === "up" ? "text-semantic-green" : deltaType === "down" ? "text-semantic-red" : "text-muted-foreground";
 
   return (
-    <div className="rounded-lg border border-border bg-card p-5">
+    <div className="rounded-lg border border-border bg-card p-5 shadow-card">
       <div className="flex items-center justify-between">
         <span className="text-xs text-muted-foreground uppercase tracking-wide">{label}</span>
         {Icon && <Icon className="h-4 w-4 text-muted-foreground" />}
       </div>
-      <div className="mt-2 text-2xl font-bold text-foreground">{value}</div>
+      <div className="mt-2 text-2xl font-semibold text-foreground">{value}</div>
       {(delta || subLabel) && (
         <div className="mt-1 flex items-center gap-1.5">
           {delta && (

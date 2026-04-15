@@ -5,6 +5,7 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { SkeletonKpi, SkeletonChart } from "@/components/Skeletons";
 import { Users, UserCheck, DollarSign, Calendar } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { chartTickStyle, chartTooltipStyle, chartBarMuted, chartBarAccent } from "@/lib/chartTheme";
 
 export default function ProductOverviewTab() {
   const { productId } = useParams<{ productId: string }>();
@@ -38,27 +39,27 @@ export default function ProductOverviewTab() {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="rounded-lg border border-border bg-card p-5">
-          <h3 className="text-sm font-bold text-foreground mb-4">Daily active users (30 days)</h3>
+        <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+          <h3 className="text-sm font-semibold text-foreground mb-4">Daily active users (30 days)</h3>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={dauData}>
-              <XAxis dataKey="day" tick={{ fill: "#888", fontSize: 10 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "#888", fontSize: 10 }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: "#1d1d1d", border: "1px solid #2a2a2a", borderRadius: 6, fontSize: 12, color: "#f0f0f0" }} />
+              <XAxis dataKey="day" tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <YAxis tick={chartTickStyle} axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={chartTooltipStyle} />
               <Bar dataKey="users" radius={[2, 2, 0, 0]}>
-                {dauData.map((_, i) => <Cell key={i} fill={i === 29 ? "#e8ff40" : "#333"} />)}
+                {dauData.map((_, i) => <Cell key={i} fill={i === 29 ? chartBarAccent : chartBarMuted} />)}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg border border-border bg-card p-5">
-          <h3 className="text-sm font-bold text-foreground mb-4">Utilisation rate</h3>
+        <div className="rounded-lg border border-border bg-card p-5 shadow-card">
+          <h3 className="text-sm font-semibold text-foreground mb-4">Utilisation rate</h3>
           <div className="flex items-center justify-center">
             <ResponsiveContainer width={200} height={200}>
               <PieChart>
                 <Pie data={donutData} innerRadius={60} outerRadius={80} dataKey="value" startAngle={90} endAngle={-270}>
-                  <Cell fill="#e8ff40" />
-                  <Cell fill="#2a2a2a" />
+                  <Cell fill={chartBarAccent} />
+                  <Cell fill={chartBarMuted} />
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
@@ -72,10 +73,10 @@ export default function ProductOverviewTab() {
 
       {integrations && integrations.length > 0 && (
         <div>
-          <h3 className="text-sm font-bold text-foreground mb-3">Integration health</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-3">Integration health</h3>
           <div className="grid grid-cols-3 gap-3">
             {integrations.map(int => (
-              <div key={int.id} className="flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3">
+              <div key={int.id} className="flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3 shadow-card">
                 <div>
                   <div className="text-sm font-medium text-foreground">{int.name}</div>
                   <div className="text-[11px] text-muted-foreground">Last synced: {new Date(int.lastSync).toLocaleString()}</div>

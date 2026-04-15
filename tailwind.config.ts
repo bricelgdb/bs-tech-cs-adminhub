@@ -56,6 +56,11 @@ export default {
           purple: "hsl(var(--semantic-purple))",
         },
       },
+      boxShadow: {
+        "card": "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)",
+        "card-hover": "0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
+        "elevated": "0 8px 24px rgba(0,0,0,0.08)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
