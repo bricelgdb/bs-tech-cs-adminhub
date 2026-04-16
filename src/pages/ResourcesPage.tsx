@@ -1,5 +1,5 @@
 import { ResourceCard } from "@/components/ResourceCard";
-import { BookOpen, Layers, FileText, GraduationCap, Newspaper, Settings, Palette, Camera, Video, Box } from "lucide-react";
+import { BookOpen, Layers, FileText, GraduationCap, Newspaper, Settings, Palette, Camera, Video, Box, Share2 } from "lucide-react";
 
 export default function ResourcesPage() {
   return (
@@ -15,6 +15,7 @@ export default function ResourcesPage() {
           <ResourceCard icon={Layers} name="Confluence" href="https://bestjira.atlassian.net/wiki/spaces/DIG/overview" />
           <ResourceCard icon={Settings} name="Jira" href="https://bestjira.atlassian.net/jira/software/c/projects/DIG/boards/593" />
           <ResourceCard icon={BookOpen} name="BESTSELLER Self-Service portal" href="https://bestseller.service-now.com/bestsellersp?spa=1" />
+          <ResourceCard icon={Share2} name="SharePoint" href="https://mybestseller.sharepoint.com/teams/GraphicalMACsupport" />
         </div>
       </div>
 
@@ -30,11 +31,11 @@ export default function ResourcesPage() {
       </div>
 
       <div>
-        <h3 className="text-sm font-bold text-foreground mb-3">Training & knowledge</h3>
+        <h3 className="text-sm font-bold text-foreground mb-3">Knowledge & Communities</h3>
         <div className="grid grid-cols-3 gap-4">
-          <ResourceCard icon={GraduationCap} name="Onboarding Guide" href="#" />
-          <ResourceCard icon={FileText} name="Training Library" href="#" />
-          <ResourceCard icon={Newspaper} name="Release Notes" href="#" />
+          <ResourceCard icon={GraduationCap} name="Creative Tips / Teams" href="https://teams.microsoft.com/l/team/19%3Afd50497890d24f0e95c75e399f6505fe%40thread.tacv2/conversations?groupId=f56e6502-0338-4ecf-a654-3f7c3bd09b56&tenantId=98db9fb9-f52b-4e63-83d9-795ccd2dfcca" />
+          <ResourceCard icon={FileText} name="GenAI Media Community / Teams" href="https://teams.microsoft.com/l/team/19%3A3DuBwwPbsM4cV-f1wlR6hIWw9TnjEMZdLFhQZsUtsdA1%40thread.tacv2/conversations?groupId=0f48ef5f-0bf0-4402-866c-e016d3357d85&tenantId=98db9fb9-f52b-4e63-83d9-795ccd2dfcca" />
+          <ResourceCard icon={Newspaper} name="Creative Force / Teams" href="https://teams.microsoft.com/l/team/19%3ArQDrAcBDAhDGxrzKlW2arcowXixz27VSDfqpJAyIOO01%40thread.tacv2/conversations?groupId=3b7825ae-3f9c-41e7-99fb-5a5c987667ef&tenantId=98db9fb9-f52b-4e63-83d9-795ccd2dfcca" />
         </div>
       </div>
     </div>
