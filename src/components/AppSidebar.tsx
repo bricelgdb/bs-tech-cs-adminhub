@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 import { rolePermissions } from "@/data/users";
-import logoImg from "@/assets/login-logo.png";
+import logoImg from "@/assets/bestseller-logo.png";
 
 const navSections = [
   {
@@ -48,7 +48,7 @@ export function AppSidebar() {
         {navSections.map(section => (
           <div key={section.label} className="mb-4">
             {!sidebarCollapsed && (
-              <div className="px-4 mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/50">{section.label}</div>
+              <div className="px-4 mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white">{section.label}</div>
             )}
             {section.items.map(item => {
               const isAllowed = allowed.some(p => {
