@@ -1,6 +1,5 @@
 import { ResourceCard } from "@/components/ResourceCard";
-import { products } from "@/data/products";
-import { BookOpen, ExternalLink, Layers, FileText, GraduationCap, Newspaper, Settings } from "lucide-react";
+import { BookOpen, Layers, FileText, GraduationCap, Newspaper, Settings, Palette, Camera, Video, Box } from "lucide-react";
 
 export default function ResourcesPage() {
   return (
@@ -13,27 +12,29 @@ export default function ResourcesPage() {
       <div>
         <h3 className="text-sm font-bold text-foreground mb-3">Internal platforms</h3>
         <div className="grid grid-cols-3 gap-4">
-          <ResourceCard icon={Layers} name="Confluence" description="Internal documentation, runbooks, and team knowledge base." linkLabel="Open Confluence" href="https://bestseller.atlassian.net" />
-          <ResourceCard icon={Settings} name="Jira" description="Project tracking and issue management for Creative Solutions team." linkLabel="Open Jira" href="https://bestseller.atlassian.net/jira" />
-          <ResourceCard icon={BookOpen} name="BESTSELLER Intranet (BSIF)" description="Company-wide intranet for news, policies, and HR resources." linkLabel="Open BSIF" href="https://bsif.bestseller.com" />
+          <ResourceCard icon={Layers} name="Confluence" href="https://bestjira.atlassian.net/wiki/spaces/DIG/overview" />
+          <ResourceCard icon={Settings} name="Jira" href="https://bestjira.atlassian.net/jira/software/c/projects/DIG/boards/593" />
+          <ResourceCard icon={BookOpen} name="BESTSELLER Self-Service portal" href="https://bestseller.service-now.com/bestsellersp?spa=1" />
         </div>
       </div>
 
       <div>
         <h3 className="text-sm font-bold text-foreground mb-3">Vendor admin portals</h3>
         <div className="grid grid-cols-3 gap-4">
-          {products.map(p => (
-            <ResourceCard key={p.id} icon={ExternalLink} name={p.name} description={`Admin console for ${p.name} — manage seats, settings, and integrations.`} linkLabel="Open admin" href={p.adminUrl} />
-          ))}
+          <ResourceCard icon={Palette} name="Adobe Creative Cloud Suite" href="https://adminconsole.adobe.com/75F7381753AC364F0A490D4B@AdobeOrg/overview" />
+          <ResourceCard icon={Camera} name="Capture One Studio" href="https://www.captureone.com/en/account" />
+          <ResourceCard icon={Video} name="Creative Force" href="https://app.creativeforce.io/settings/studio/general" />
+          <ResourceCard icon={Palette} name="Pantone Connect" href="https://licensing.pantone.com/sign-in" />
+          <ResourceCard icon={Box} name="Weavy AI" href="https://app.weavy.ai/" />
         </div>
       </div>
 
       <div>
         <h3 className="text-sm font-bold text-foreground mb-3">Training & knowledge</h3>
         <div className="grid grid-cols-3 gap-4">
-          <ResourceCard icon={GraduationCap} name="Onboarding Guide" description="Step-by-step onboarding guide for new Creative Solutions team members." linkLabel="Open guide" href="#" />
-          <ResourceCard icon={FileText} name="Training Library" description="Self-paced courses and certifications for all creative tools." linkLabel="Browse courses" href="#" />
-          <ResourceCard icon={Newspaper} name="Release Notes" description="Changelog and release notes for TECH Creative Solutions platform updates." linkLabel="View changelog" href="#" />
+          <ResourceCard icon={GraduationCap} name="Onboarding Guide" href="#" />
+          <ResourceCard icon={FileText} name="Training Library" href="#" />
+          <ResourceCard icon={Newspaper} name="Release Notes" href="#" />
         </div>
       </div>
     </div>
