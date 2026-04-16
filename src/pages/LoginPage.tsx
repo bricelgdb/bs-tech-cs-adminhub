@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginLogo from "@/assets/login-logo.png";
+import bsLogo from "@/assets/bestseller-logo.png";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,8 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen flex-col bg-sidebar">
       <div className="flex flex-1 flex-col items-center justify-center">
-        <img src={loginLogo} alt="TECH Creative Solutions Admin Hub" className="h-[240px] w-auto mb-10" />
+        <img src={bsLogo} alt="BESTSELLER" className="h-[120px] w-auto mb-6" />
+        <p className="text-[#e1fe66] text-sm font-semibold tracking-widest uppercase mb-10">TECH Creative Solutions Admin Hub</p>
         <div className="w-full max-w-sm">
           <form onSubmit={handleLogin} className="space-y-4">
             <input

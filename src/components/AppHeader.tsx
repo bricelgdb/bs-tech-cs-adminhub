@@ -50,7 +50,7 @@ export function AppHeader() {
       </div>
       <div className="flex items-center gap-3">
         <span className="rounded-full border border-border px-2.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-          BESTSELLER TECH
+          TECH CREATIVE SOLUTIONS
         </span>
         <button className="relative text-muted-foreground hover:text-foreground transition-colors">
           <Bell className="h-4 w-4" />
