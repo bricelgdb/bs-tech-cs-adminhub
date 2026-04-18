@@ -28,7 +28,7 @@ export default function ProductsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="heading-page">Products</h1>
-        <p className="subtitle-page mt-1">8 creative tools · 5 domains</p>
+        <p className="subtitle-page mt-1">{products?.length ?? 0} creative tools · 5 domains</p>
       </div>
 
       <div className="flex items-center gap-3 flex-wrap">
