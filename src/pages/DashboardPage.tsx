@@ -105,7 +105,7 @@ export default function DashboardPage() {
           <SkeletonChart height={200} />
         ) : (
           <div className="rounded-lg border border-border bg-card p-5 shadow-card">
-            <Timeline events={activity?.slice(0, 8) ?? []} />
+            <Timeline events={(activity?.filter(e => !/pending|requested|request/i.test(e.action)) ?? []).slice(0, 8)} />
           </div>
         )}
       </div>
