@@ -50,32 +50,14 @@ export default function DashboardPage() {
         <p className="subtitle-page mt-1">{new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
       </div>
 
-      <div className="space-y-2">
-        {expiringProducts.map(p => (
-          <AlertStrip
-            key={p.id}
-            severity="amber"
-            message={`${p.name} licence expires on ${p.renewal} — action required`}
-            actionTo="/licences"
-          />
-        ))}
-        {accessRequests.length > 0 && (
-          <AlertStrip
-            severity="red"
-            message={`${accessRequests.length} access request${accessRequests.length > 1 ? "s" : ""} pending review`}
-            actionTo="/access"
-          />
-        )}
-      </div>
-
       {pLoading ? (
         <div className="grid grid-cols-4 gap-4">{[1,2,3,4].map(i => <SkeletonKpi key={i} />)}</div>
       ) : (
         <div className="grid grid-cols-4 gap-4">
           <KpiTile label="Total Products" value={String(products?.length ?? 0)} icon={Package} />
-          <KpiTile label="Active Seats" value={totalSeats.toLocaleString()} icon={Users} delta="+12 this month" deltaType="up" />
-          <KpiTile label="Licence Utilisation" value={`${avgUtil}%`} icon={Percent} delta="+3%" deltaType="up" />
-          <KpiTile label="Monthly Spend" value={`€${totalSpend.toLocaleString()}`} icon={DollarSign} subLabel="excl. internal tools" />
+          <KpiTile label="Total of users" value={totalSeats.toLocaleString()} icon={Users} />
+          <KpiTile label="Total AI Generations last month" value="12,847" icon={Percent} delta="+18%" deltaType="up" />
+          <KpiTile label="Products Budget" value={`€${totalSpend.toLocaleString()}`} icon={DollarSign} />
         </div>
       )}
 
@@ -123,7 +105,7 @@ export default function DashboardPage() {
           <SkeletonChart height={200} />
         ) : (
           <div className="rounded-lg border border-border bg-card p-5 shadow-card">
-            <Timeline events={activity?.slice(0, 8) ?? []} />
+            <Timeline events={(activity?.filter(e => !/pending|requested|request/i.test(e.action)) ?? []).slice(0, 8)} />
           </div>
         )}
       </div>
