@@ -59,6 +59,8 @@ export const products: Product[] = [
   { id: "weavy", name: "Weavy AI", domain: ["GenAI", "Collaboration"], seats: 88, utilisation: 71, costMonthly: 2400, renewal: "2026-06-01", status: "active", description: "AI-powered collaboration platform for creative teams with real-time content generation.", adminUrl: "https://admin.weavy.com" },
   { id: "midjourney", name: "Midjourney AI", domain: ["GenAI", "Design"], seats: 12, utilisation: 100, costMonthly: 960, renewal: "2026-06-01", status: "active", description: "AI image generation for concept art, moodboards, and creative exploration.", adminUrl: "https://www.midjourney.com/account" },
   { id: "davinci", name: "DaVinci Resolve Studio", domain: ["Video", "Post"], seats: 20, utilisation: 85, costMonthly: 1600, renewal: "2026-05-03", status: "expiring", description: "Professional video editing, colour grading, VFX, and audio post-production.", adminUrl: "https://www.blackmagicdesign.com/account" },
+  { id: "ipaper", name: "iPaper", domain: ["Design", "Production"], seats: 18, utilisation: 72, costMonthly: 720, renewal: "2026-10-01", status: "active", description: "Digital catalogue and interactive flipbook platform for marketing and product showcases.", adminUrl: "https://admin.ipaper.io" },
+  { id: "fonts", name: "Fonts", domain: ["Design"], seats: 65, utilisation: 80, costMonthly: 540, renewal: "2026-12-01", status: "active", description: "Centralised font licensing and typography management for creative teams.", adminUrl: "https://fonts.adobe.com" },
 ];
 
 const namePool = [
