@@ -10,8 +10,7 @@ export default function ProductsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="heading-page">Products</h1>
-        <p className="subtitle-page mt-1">{products?.length ?? 0} creative tools</p>
+        <h1 className="heading-page">All Products</h1>
       </div>
 
       {isLoading ? (
