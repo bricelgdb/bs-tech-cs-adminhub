@@ -24,6 +24,7 @@ export interface Product {
   description: string;
   adminUrl: string;
   logo?: string;
+  logoScale?: number;
 }
 
 export interface LicenceUser {
@@ -65,13 +66,13 @@ export interface DocLink {
 export const products: Product[] = [
   { id: "adobe-cc", name: "Adobe Creative Cloud Suite", domain: ["Design", "Photo", "Video"], seats: 142, utilisation: 89, costMonthly: 9240, renewal: "2026-09-01", status: "active", description: "Industry-standard creative apps including Photoshop, Illustrator, InDesign, Premiere Pro, and After Effects.", adminUrl: "https://adminconsole.adobe.com", logo: adobeCcLogo },
   { id: "ai-studioone", name: "BESTSELLER AI Studio", domain: ["GenAI", "Design"], seats: 88, utilisation: 94, costMonthly: 0, renewal: null, status: "active", description: "BESTSELLER's proprietary AI-powered creative platform for generating and editing visual content at scale.", adminUrl: "https://studioone.bestseller.com/admin", logo: aiStudioOneLogo },
-  { id: "capture-one", name: "Capture One Studio", domain: ["Photo"], seats: 37, utilisation: 81, costMonthly: 1840, renewal: "2026-08-01", status: "active", description: "Professional photo editing and tethered capture software for fashion and product photography.", adminUrl: "https://account.captureone.com", logo: captureOneLogo },
+  { id: "capture-one", name: "Capture One Studio", domain: ["Photo"], seats: 37, utilisation: 81, costMonthly: 1840, renewal: "2026-08-01", status: "active", description: "Professional photo editing and tethered capture software for fashion and product photography.", adminUrl: "https://account.captureone.com", logo: captureOneLogo, logoScale: 1.5 },
   { id: "creative-force", name: "Creative Force", domain: ["Photo", "Production"], seats: 54, utilisation: 76, costMonthly: 3100, renewal: "2026-07-01", status: "active", description: "End-to-end content production workflow management for eCommerce photography and video.", adminUrl: "https://app.creativeforce.io/admin", logo: creativeForceLogo },
   { id: "pantone", name: "Pantone Connect", domain: ["Design", "Colour"], seats: 22, utilisation: 64, costMonthly: 480, renewal: "2026-04-28", status: "expiring", description: "Colour matching and palette management tool integrated with Adobe and design workflows.", adminUrl: "https://connect.pantone.com", logo: pantoneLogo },
   { id: "weavy", name: "Weavy AI", domain: ["GenAI", "Collaboration"], seats: 88, utilisation: 71, costMonthly: 2400, renewal: "2026-06-01", status: "active", description: "AI-powered collaboration platform for creative teams with real-time content generation.", adminUrl: "https://admin.weavy.com", logo: weavyLogo },
   { id: "midjourney", name: "Midjourney AI", domain: ["GenAI", "Design"], seats: 12, utilisation: 100, costMonthly: 960, renewal: "2026-06-01", status: "active", description: "AI image generation for concept art, moodboards, and creative exploration.", adminUrl: "https://www.midjourney.com/account", logo: midjourneyLogo },
-  { id: "davinci", name: "DaVinci Resolve Studio", domain: ["Video", "Post"], seats: 20, utilisation: 85, costMonthly: 1600, renewal: "2026-05-03", status: "expiring", description: "Professional video editing, colour grading, VFX, and audio post-production.", adminUrl: "https://www.blackmagicdesign.com/account", logo: davinciLogo },
-  { id: "ipaper", name: "iPaper", domain: ["Design", "Production"], seats: 18, utilisation: 72, costMonthly: 720, renewal: "2026-10-01", status: "active", description: "Digital catalogue and interactive flipbook platform for marketing and product showcases.", adminUrl: "https://admin.ipaper.io", logo: ipaperLogo },
+  { id: "davinci", name: "DaVinci Resolve Studio", domain: ["Video", "Post"], seats: 20, utilisation: 85, costMonthly: 1600, renewal: "2026-05-03", status: "expiring", description: "Professional video editing, colour grading, VFX, and audio post-production.", adminUrl: "https://www.blackmagicdesign.com/account", logo: davinciLogo, logoScale: 2 },
+  { id: "ipaper", name: "iPaper", domain: ["Design", "Production"], seats: 18, utilisation: 72, costMonthly: 720, renewal: "2026-10-01", status: "active", description: "Digital catalogue and interactive flipbook platform for marketing and product showcases.", adminUrl: "https://admin.ipaper.io", logo: ipaperLogo, logoScale: 1.4 },
   { id: "fonts", name: "Fonts", domain: ["Design"], seats: 65, utilisation: 80, costMonthly: 540, renewal: "2026-12-01", status: "active", description: "Centralised font licensing and typography management for creative teams.", adminUrl: "https://fonts.adobe.com", logo: fontsLogo },
 ];
 
