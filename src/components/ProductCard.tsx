@@ -19,7 +19,11 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
               src={product.logo}
               alt={`${product.name} logo`}
               loading="lazy"
-              className="max-h-16 max-w-16 object-contain"
+              className="object-contain"
+              style={{
+                maxHeight: `${4 * (product.logoScale ?? 1)}rem`,
+                maxWidth: `${4 * (product.logoScale ?? 1)}rem`,
+              }}
             />
           </div>
         )}
