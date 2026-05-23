@@ -1,14 +1,12 @@
 import { useProducts, useActivity } from "@/hooks/useDataHooks";
-import { useAppStore } from "@/store/appStore";
+import { useAuth } from "@/providers/AuthProvider";
 import { KpiTile } from "@/components/KpiTile";
-import { AlertStrip } from "@/components/AlertStrip";
 import { Timeline } from "@/components/Timeline";
 import { SkeletonKpi, SkeletonChart } from "@/components/Skeletons";
 import { Package, Users, Percent, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { domainColorMap, type Product } from "@/data/products";
-import { accessRequests } from "@/data/users";
+import { domainColorMap } from "@/data/products";
 import { chartTickStyle, chartTooltipStyle, chartBarMuted, chartBarAccent } from "@/lib/chartTheme";
 
 function getGreeting() {
@@ -28,7 +26,8 @@ const monthlySpend = [
 ];
 
 export default function DashboardPage() {
-  const { userName } = useAppStore();
+  const { profile } = useAuth();
+  const userName = profile?.name || profile?.email || "";
   const { data: products, isLoading: pLoading } = useProducts();
   const { data: activity, isLoading: aLoading } = useActivity();
 
