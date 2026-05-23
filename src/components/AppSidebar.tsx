@@ -114,12 +114,3 @@ function SignOutButton() {
   );
 }
 
-function _End() {
-  return (
-    <>
-      {/* placeholder so original closing braces remain valid */}
-        )}
-      </div>
-    </aside>
-  );
-}
