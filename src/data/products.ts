@@ -12,6 +12,19 @@ import davinciLogo from "@/assets/products/davinci.jpg";
 import ipaperLogo from "@/assets/products/ipaper.jpeg";
 import fontsLogo from "@/assets/products/fonts.png";
 
+export const productLogos: Record<string, string> = {
+  "adobe-cc": adobeCcLogo,
+  "ai-studioone": aiStudioOneLogo,
+  "capture-one": captureOneLogo,
+  "creative-force": creativeForceLogo,
+  pantone: pantoneLogo,
+  weavy: weavyLogo,
+  midjourney: midjourneyLogo,
+  davinci: davinciLogo,
+  ipaper: ipaperLogo,
+  fonts: fontsLogo,
+};
+
 export interface Product {
   id: string;
   name: string;
@@ -63,33 +76,17 @@ export interface DocLink {
   href: string;
 }
 
-export const products: Product[] = [
-  { id: "ai-studioone", name: "BESTSELLER AI Studio", domain: ["GenAI", "Design"], seats: 88, utilisation: 94, costMonthly: 0, renewal: null, status: "active", description: "BESTSELLER's proprietary AI-powered creative platform for generating and editing visual content at scale.", adminUrl: "https://studioone.bestseller.com/admin", logo: aiStudioOneLogo },
-  { id: "adobe-cc", name: "Adobe Creative Cloud Suite", domain: ["Design", "Photo", "Video"], seats: 142, utilisation: 89, costMonthly: 9240, renewal: "2026-09-01", status: "active", description: "Industry-standard creative apps including Photoshop, Illustrator, InDesign, Premiere Pro, and After Effects.", adminUrl: "https://adminconsole.adobe.com", logo: adobeCcLogo },
-  { id: "capture-one", name: "Capture One Studio", domain: ["Photo"], seats: 37, utilisation: 81, costMonthly: 1840, renewal: "2026-08-01", status: "active", description: "Professional photo editing and tethered capture software for fashion and product photography.", adminUrl: "https://account.captureone.com", logo: captureOneLogo, logoScale: 1.5 },
-  { id: "creative-force", name: "Creative Force", domain: ["Photo", "Production"], seats: 54, utilisation: 76, costMonthly: 3100, renewal: "2026-07-01", status: "active", description: "End-to-end content production workflow management for eCommerce photography and video.", adminUrl: "https://app.creativeforce.io/admin", logo: creativeForceLogo },
-  { id: "pantone", name: "Pantone Connect", domain: ["Design", "Colour"], seats: 22, utilisation: 64, costMonthly: 480, renewal: "2026-04-28", status: "expiring", description: "Colour matching and palette management tool integrated with Adobe and design workflows.", adminUrl: "https://connect.pantone.com", logo: pantoneLogo },
-  { id: "weavy", name: "Weavy AI", domain: ["GenAI", "Collaboration"], seats: 88, utilisation: 71, costMonthly: 2400, renewal: "2026-06-01", status: "active", description: "AI-powered collaboration platform for creative teams with real-time content generation.", adminUrl: "https://admin.weavy.com", logo: weavyLogo },
-  { id: "midjourney", name: "Midjourney AI", domain: ["GenAI", "Design"], seats: 12, utilisation: 100, costMonthly: 960, renewal: "2026-06-01", status: "active", description: "AI image generation for concept art, moodboards, and creative exploration.", adminUrl: "https://www.midjourney.com/account", logo: midjourneyLogo },
-  { id: "davinci", name: "DaVinci Resolve Studio", domain: ["Video", "Post"], seats: 20, utilisation: 85, costMonthly: 1600, renewal: "2026-05-03", status: "expiring", description: "Professional video editing, colour grading, VFX, and audio post-production.", adminUrl: "https://www.blackmagicdesign.com/account", logo: davinciLogo, logoScale: 2 },
-  { id: "ipaper", name: "iPaper", domain: ["Design", "Production"], seats: 18, utilisation: 72, costMonthly: 720, renewal: "2026-10-01", status: "active", description: "Digital catalogue and interactive flipbook platform for marketing and product showcases.", adminUrl: "https://admin.ipaper.io", logo: ipaperLogo, logoScale: 1.4 },
-  { id: "fonts", name: "Fonts", domain: ["Design"], seats: 65, utilisation: 80, costMonthly: 540, renewal: "2026-12-01", status: "active", description: "Centralised font licensing and typography management for creative teams.", adminUrl: "https://fonts.adobe.com", logo: fontsLogo },
-];
+// Synthetic, non-PII placeholder names for licence/audit fixtures.
+const placeholderNames = Array.from({ length: 15 }, (_, i) => `User ${i + 1}`);
 
-const namePool = [
-  "Emma Nielsen", "Lars Pedersen", "Sofia Andersen", "Mikkel Hansen", "Camilla Jensen",
-  "Frederik Larsen", "Anna Christensen", "Oliver Rasmussen", "Ida Madsen", "Magnus Eriksen",
-  "Liv Thomsen", "Jonas Olsen", "Freja Møller", "Rasmus Sørensen", "Clara Poulsen",
-];
-
-function generateLicenceUsers(productId: string, count: number): LicenceUser[] {
+export function generateLicenceUsers(productId: string, count: number): LicenceUser[] {
   const roles = ["Designer", "Editor", "Producer", "Manager", "Developer"];
   const seatTypes = ["Full", "Limited", "Viewer"];
   const statuses: LicenceUser["status"][] = ["active", "active", "active", "inactive", "pending"];
   return Array.from({ length: count }, (_, i) => ({
     id: `${productId}-user-${i}`,
-    name: namePool[i % namePool.length],
-    email: namePool[i % namePool.length].toLowerCase().replace(" ", ".") + "@bestseller.com",
+    name: placeholderNames[i % placeholderNames.length],
+    email: `user${i + 1}@example.com`,
     role: roles[i % roles.length],
     seatType: seatTypes[i % seatTypes.length],
     assignedDate: `2025-${String((i % 12) + 1).padStart(2, "0")}-15`,
@@ -98,52 +95,33 @@ function generateLicenceUsers(productId: string, count: number): LicenceUser[] {
   }));
 }
 
-function generateAuditEvents(productId: string): AuditEvent[] {
+export function generateAuditEvents(productId: string): AuditEvent[] {
   const actions = ["Seat assigned", "Seat revoked", "Role changed", "Integration synced", "Report exported", "Access requested", "Configuration updated"];
   return Array.from({ length: 12 }, (_, i) => ({
     id: `${productId}-audit-${i}`,
-    timestamp: `2026-04-${String(11 - i).padStart(2, "0")}T${String(9 + (i % 8)).padStart(2, "0")}:${String(i * 5 % 60).padStart(2, "0")}:00Z`,
-    user: namePool[i % namePool.length],
+    timestamp: `2026-04-${String(11 - i).padStart(2, "0")}T${String(9 + (i % 8)).padStart(2, "0")}:${String((i * 5) % 60).padStart(2, "0")}:00Z`,
+    user: placeholderNames[i % placeholderNames.length],
     action: actions[i % actions.length],
-    details: `${actions[i % actions.length]} for ${namePool[(i + 3) % namePool.length]}`,
+    details: `${actions[i % actions.length]} for ${placeholderNames[(i + 3) % placeholderNames.length]}`,
   }));
 }
 
-function generateIntegrations(productId: string): Integration[] {
-  const integrations: Integration[] = [
-    { id: `${productId}-int-1`, name: "Azure AD SSO", status: "connected", method: "SAML 2.0", lastSync: "2026-04-11T08:00:00Z", apiKey: "sk-****-****-****-7f3a" },
-    { id: `${productId}-int-2`, name: "BESTSELLER DAM", status: "connected", method: "REST API", lastSync: "2026-04-11T07:30:00Z", apiKey: "dam-****-****-9b2c" },
+export function generateIntegrations(productId: string): Integration[] {
+  return [
+    { id: `${productId}-int-1`, name: "Azure AD SSO", status: "connected", method: "SAML 2.0", lastSync: "2026-04-11T08:00:00Z" },
+    { id: `${productId}-int-2`, name: "BESTSELLER DAM", status: "connected", method: "REST API", lastSync: "2026-04-11T07:30:00Z" },
     { id: `${productId}-int-3`, name: "Creative Force Sync", status: productId === "creative-force" ? "connected" : "disconnected", method: "Webhook", lastSync: "2026-04-10T22:00:00Z" },
   ];
-  return integrations;
 }
 
-function generateDocs(productId: string): DocLink[] {
-  const product = products.find(p => p.id === productId);
-  const name = product?.name ?? productId;
+export function generateDocs(productId: string, productName: string): DocLink[] {
   return [
-    { id: `${productId}-doc-1`, domain: "Vendor", title: `${name} Admin Guide`, description: `Official administration documentation for ${name}.`, href: "#" },
-    { id: `${productId}-doc-2`, domain: "Internal", title: `${name} — BESTSELLER Setup Guide`, description: `Internal Confluence page covering BESTSELLER-specific configuration.`, href: "#" },
-    { id: `${productId}-doc-3`, domain: "Training", title: `${name} Onboarding Course`, description: `Self-paced training for new users of ${name}.`, href: "#" },
-    { id: `${productId}-doc-4`, domain: "Vendor", title: `${name} API Reference`, description: `REST API documentation and integration guides.`, href: "#" },
+    { id: `${productId}-doc-1`, domain: "Vendor", title: `${productName} Admin Guide`, description: `Official administration documentation for ${productName}.`, href: "#" },
+    { id: `${productId}-doc-2`, domain: "Internal", title: `${productName} — BESTSELLER Setup Guide`, description: `Internal Confluence page covering BESTSELLER-specific configuration.`, href: "#" },
+    { id: `${productId}-doc-3`, domain: "Training", title: `${productName} Onboarding Course`, description: `Self-paced training for new users of ${productName}.`, href: "#" },
+    { id: `${productId}-doc-4`, domain: "Vendor", title: `${productName} API Reference`, description: `REST API documentation and integration guides.`, href: "#" },
   ];
 }
-
-export const productLicences: Record<string, LicenceUser[]> = Object.fromEntries(
-  products.map(p => [p.id, generateLicenceUsers(p.id, Math.min(p.seats, 15))])
-);
-
-export const productAudits: Record<string, AuditEvent[]> = Object.fromEntries(
-  products.map(p => [p.id, generateAuditEvents(p.id)])
-);
-
-export const productIntegrations: Record<string, Integration[]> = Object.fromEntries(
-  products.map(p => [p.id, generateIntegrations(p.id)])
-);
-
-export const productDocs: Record<string, DocLink[]> = Object.fromEntries(
-  products.map(p => [p.id, generateDocs(p.id)])
-);
 
 export const domainColorMap: Record<string, string> = {
   Photo: "hsl(214, 72%, 48%)",

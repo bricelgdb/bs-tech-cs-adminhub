@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useLicences } from "@/hooks/useDataHooks";
+import { useLicences, useAccessRequests } from "@/hooks/useDataHooks";
 import { DataTable } from "@/components/DataTable";
 import { StatusBadge } from "@/components/StatusBadge";
 import { type ColumnDef } from "@tanstack/react-table";
 import type { LicenceUser } from "@/data/products";
-import { accessRequests } from "@/data/users";
 
 const requestColumns: ColumnDef<any, any>[] = [
   { accessorKey: "userName", header: "User" },
@@ -34,8 +33,9 @@ const userColumns: ColumnDef<LicenceUser, any>[] = [
 export default function ProductAccessTab() {
   const { productId } = useParams<{ productId: string }>();
   const { data: licences, isLoading } = useLicences(productId!);
+  const { data: allRequests } = useAccessRequests();
 
-  const productRequests = accessRequests.filter(r => r.productId === productId);
+  const productRequests = (allRequests ?? []).filter((r) => r.productId === productId);
 
   return (
     <div className="space-y-6">

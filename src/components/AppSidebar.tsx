@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 import { rolePermissions } from "@/data/users";
+import { useAuth } from "@/providers/AuthProvider";
 import logoImg from "@/assets/bestseller-logo.png";
 
 const navSections = [
@@ -32,9 +33,10 @@ const navSections = [
 ];
 
 export function AppSidebar() {
-  const { sidebarCollapsed, toggleSidebar, activeRole } = useAppStore();
+  const { sidebarCollapsed, toggleSidebar } = useAppStore();
+  const { roles } = useAuth();
   const location = useLocation();
-  const allowed = rolePermissions[activeRole];
+  const allowed = Array.from(new Set(roles.flatMap((r) => rolePermissions[r] ?? [])));
 
   return (
     <aside
@@ -92,15 +94,23 @@ export function AppSidebar() {
           {sidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
         </button>
         {!sidebarCollapsed && (
-          <button
-            onClick={() => window.location.href = "/login"}
-            className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-sidebar-foreground/50 hover:text-sidebar-foreground w-full transition-colors"
-          >
-            <LogOut className="h-3 w-3" />
-            Sign out
-          </button>
+          <SignOutButton />
         )}
       </div>
     </aside>
   );
 }
+
+function SignOutButton() {
+  const { signOut } = useAuth();
+  return (
+    <button
+      onClick={async () => { await signOut(); window.location.href = "/login"; }}
+      className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-sidebar-foreground/50 hover:text-sidebar-foreground w-full transition-colors"
+    >
+      <LogOut className="h-3 w-3" />
+      Sign out
+    </button>
+  );
+}
+
