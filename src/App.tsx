@@ -53,9 +53,10 @@ const App = () => (
             <Route path="/access" element={<RouteGuard allowedPaths={["/access"]}><AccessPage /></RouteGuard>} />
             <Route path="/licences" element={<RouteGuard allowedPaths={["/licences"]}><LicencesPage /></RouteGuard>} />
             <Route path="/resources" element={<RouteGuard allowedPaths={["/resources"]}><ResourcesPage /></RouteGuard>} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
