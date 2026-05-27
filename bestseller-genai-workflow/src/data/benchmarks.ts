@@ -1,0 +1,181 @@
+import { BenchmarkScore } from '../types';
+
+export const benchmarkScores: BenchmarkScore[] = [
+  {
+    toolId: 'adobe-firefly',
+    outputQuality: 7.5,
+    fashionRealism: 7.0,
+    brandConsistency: 9.0,
+    promptAdherence: 8.5,
+    generationSpeedSeconds: 12,
+    costPerGeneration: 0.04,
+    costPerUsableAsset: 0.11,
+    batchEfficiency: 8.5,
+    localizationCapability: 7.5,
+    commercialSafety: 10.0,
+    easeOfUse: 9.0,
+    bestsellerFit: 9.0,
+    successRate: 0.88,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'midjourney',
+    outputQuality: 9.5,
+    fashionRealism: 9.5,
+    brandConsistency: 7.0,
+    promptAdherence: 8.0,
+    generationSpeedSeconds: 45,
+    costPerGeneration: 0.10,
+    costPerUsableAsset: 0.22,
+    batchEfficiency: 7.0,
+    localizationCapability: 6.5,
+    commercialSafety: 8.5,
+    easeOfUse: 7.0,
+    bestsellerFit: 8.5,
+    successRate: 0.72,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'dalle3',
+    outputQuality: 7.5,
+    fashionRealism: 6.5,
+    brandConsistency: 6.5,
+    promptAdherence: 9.5,
+    generationSpeedSeconds: 18,
+    costPerGeneration: 0.04,
+    costPerUsableAsset: 0.09,
+    batchEfficiency: 7.5,
+    localizationCapability: 9.0,
+    commercialSafety: 9.5,
+    easeOfUse: 9.5,
+    bestsellerFit: 7.5,
+    successRate: 0.82,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'runway-gen3',
+    outputQuality: 8.5,
+    fashionRealism: 8.5,
+    brandConsistency: 7.0,
+    promptAdherence: 7.5,
+    generationSpeedSeconds: 120,
+    costPerGeneration: 0.50,
+    costPerUsableAsset: 1.30,
+    batchEfficiency: 6.0,
+    localizationCapability: 5.5,
+    commercialSafety: 9.0,
+    easeOfUse: 8.0,
+    bestsellerFit: 8.0,
+    successRate: 0.62,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'kling-ai',
+    outputQuality: 9.0,
+    fashionRealism: 9.5,
+    brandConsistency: 6.0,
+    promptAdherence: 7.5,
+    generationSpeedSeconds: 90,
+    costPerGeneration: 0.14,
+    costPerUsableAsset: 0.35,
+    batchEfficiency: 7.5,
+    localizationCapability: 4.0,
+    commercialSafety: 4.5,
+    easeOfUse: 7.5,
+    bestsellerFit: 5.5,
+    successRate: 0.68,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'adobe-express',
+    outputQuality: 7.0,
+    fashionRealism: 6.5,
+    brandConsistency: 9.5,
+    promptAdherence: 7.5,
+    generationSpeedSeconds: 8,
+    costPerGeneration: 0.02,
+    costPerUsableAsset: 0.05,
+    batchEfficiency: 9.5,
+    localizationCapability: 8.5,
+    commercialSafety: 10.0,
+    easeOfUse: 10.0,
+    bestsellerFit: 9.5,
+    successRate: 0.93,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'adobe-photoshop-ai',
+    outputQuality: 8.5,
+    fashionRealism: 8.0,
+    brandConsistency: 9.0,
+    promptAdherence: 8.0,
+    generationSpeedSeconds: 20,
+    costPerGeneration: 0.05,
+    costPerUsableAsset: 0.10,
+    batchEfficiency: 7.0,
+    localizationCapability: 7.0,
+    commercialSafety: 10.0,
+    easeOfUse: 7.5,
+    bestsellerFit: 9.0,
+    successRate: 0.85,
+    lastUpdated: '2025-05-26',
+  },
+  {
+    toolId: 'chatgpt4o',
+    outputQuality: 7.0,
+    fashionRealism: 5.5,
+    brandConsistency: 8.0,
+    promptAdherence: 9.0,
+    generationSpeedSeconds: 10,
+    costPerGeneration: 0.01,
+    costPerUsableAsset: 0.02,
+    batchEfficiency: 8.5,
+    localizationCapability: 9.5,
+    commercialSafety: 9.5,
+    easeOfUse: 9.5,
+    bestsellerFit: 9.0,
+    successRate: 0.90,
+    lastUpdated: '2025-05-26',
+  },
+];
+
+export function getBenchmarkByToolId(toolId: string): BenchmarkScore | undefined {
+  return benchmarkScores.find(b => b.toolId === toolId);
+}
+
+export function getCompositeScore(score: BenchmarkScore): number {
+  const weights = {
+    outputQuality: 0.15,
+    fashionRealism: 0.12,
+    brandConsistency: 0.10,
+    promptAdherence: 0.10,
+    batchEfficiency: 0.08,
+    localizationCapability: 0.08,
+    commercialSafety: 0.12,
+    easeOfUse: 0.10,
+    bestsellerFit: 0.15,
+  };
+  return (
+    score.outputQuality * weights.outputQuality +
+    score.fashionRealism * weights.fashionRealism +
+    score.brandConsistency * weights.brandConsistency +
+    score.promptAdherence * weights.promptAdherence +
+    score.batchEfficiency * weights.batchEfficiency +
+    score.localizationCapability * weights.localizationCapability +
+    score.commercialSafety * weights.commercialSafety +
+    score.easeOfUse * weights.easeOfUse +
+    score.bestsellerFit * weights.bestsellerFit
+  );
+}
+
+export const benchmarkCriteria = [
+  { key: 'outputQuality', label: 'Output Quality', description: 'Overall image/video quality rating' },
+  { key: 'fashionRealism', label: 'Fashion Realism', description: 'Accuracy of fabric, clothing, and model representation' },
+  { key: 'brandConsistency', label: 'Brand Consistency', description: 'Ability to maintain consistent brand look & feel' },
+  { key: 'promptAdherence', label: 'Prompt Adherence', description: 'How accurately the output matches the prompt' },
+  { key: 'batchEfficiency', label: 'Batch Efficiency', description: 'Capability for high-volume batch generation' },
+  { key: 'localizationCapability', label: 'Localisation', description: 'Support for market-specific adaptations' },
+  { key: 'commercialSafety', label: 'Commercial Safety', description: 'IP safety and licensing clarity for commercial use' },
+  { key: 'easeOfUse', label: 'Ease of Use', description: 'Accessibility for non-technical users' },
+  { key: 'bestsellerFit', label: 'BESTSELLER Fit', description: 'Overall suitability for BESTSELLER workflows' },
+] as const;
